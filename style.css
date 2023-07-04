@@ -1,0 +1,148 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(bg.jpg);
+    background-size: contain;
+    font-family: 'Vollkorn', serif;
+    letter-spacing: 0.2em;
+}
+
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 5px rgba(230, 230, 230, 0.825), 0 5px 15px rgb(196, 194, 194);
+    border: 5px solid rgba(255, 255, 255, 0.732);
+    border-radius: 2px;
+    transform: scale();   
+}
+
+    /* element to make light spread below the form  */
+
+.container::before{   
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; 
+    background: linear-gradient(45deg,#ff1e006d,rgba(60, 255, 0, 0.447));
+    animation: anime 12s linear  infinite; 
+    transform: perspective(2em) rotateX(6deg) scale(3); 
+}
+
+   /* element that creates light effect */
+
+.container::after{
+    content: '';
+    position: absolute;
+    pointer-events: none;   
+    top: -5px;
+    left:-5px;
+    right:-5px;
+    bottom:-5px;
+    z-index: -1;
+    background: linear-gradient(45deg,#ff1e00,rgb(60, 255, 0));
+    animation: anime 12s linear  infinite;
+}
+@keyframes anime {
+    0%   {
+        filter:blur(65px) hue-rotate(0deg);
+    }
+    25% {
+        filter:blur(40px) hue-rotate(360deg);
+    }
+    75% {
+        filter:blur(70px) hue-rotate(0deg);
+    }
+    100% {
+        filter:blur(60px) hue-rotate(360deg);
+    }
+}
+
+
+.form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.form h1{
+    margin: 0;padding: 0;color: #fff;
+    font-size: 2.5rem;
+}
+.form .inputbox{
+    width: 100%;
+    margin-top: 30px;
+}
+.form .inputbox input{
+    width: 80%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    font-size: 20px;
+    color:#ffffff ;
+    padding: 5px;
+}
+::placeholder{
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.4rem;
+    text-shadow:0px 0px 8px#ffffffb3;
+    letter-spacing: 0.2em;
+}
+
+    /* the login button */
+
+.form .inputbox input[type="submit"]
+{
+    font-family: 'Vollkorn', serif;
+    background:transparent;
+    border: 2px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+    max-width: 120px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+}
+.form .inputbox input[type="submit"]:hover{
+    background:white;
+    cursor: pointer;
+    transition: 0.2s;
+    animation: cc 2s linear infinite;
+}
+@keyframes cc {
+    0%   {color: violet}
+    25%  {color: blueviolet}
+    50%  {color: blue}
+    75%  {color: cyan}
+    100% {color: magenta}
+}
+
+ /* forgot password option  */
+
+.form p {
+    color: #fff;
+}
+.form a {
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
